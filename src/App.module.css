@@ -1,0 +1,153 @@
+/* .App {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: rgb(40, 31, 53);
+  background: linear-gradient(to rigth, rgb(40,31,53), rgb(61,46,83));
+  color: rgb(240, 240, 240);
+  font-family: "Architects Daughter", cursive;
+}
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.body {
+  background: rgb(40, 31, 53);
+  background: linear-gradient(to rigth, rgb(40,31,53), rgb(61,46,83));
+  color: rgb(240, 240, 240);
+  font-family: "Architects Daughter", cursive;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+h1 {
+  margin: 1em 0 0 0;
+  font-size: 3rem;
+}
+
+h2 {
+  margin-bottom: 2em;
+}
+
+.radio {
+  max-width: 60em;
+  width: 100%;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+  font-size: 1.2em;
+  width: 100%;
+
+  span {
+    margin: 0.25em;
+    border: 1px solid #e36bae;
+    border-radius: 10px;
+    padding: 0.25em 0.75em;
+
+    &:hover {
+      cursor: pointer;
+      background: linear-gradient(to bottom rigth, #e36bae, #fb743e);
+    }
+  }
+
+  .selected {
+    background: linear-gradient(to bottom rigth, #e36bae, #fb743e);
+  }
+} */
+
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+body {
+  /* background: rgb(40, 31, 53); */
+  background: linear-gradient(to right, #4994e8, #86c4f3, #4994e8);
+  color: #e40017;
+  color: #e36bae;
+  color: #fb743e;
+  color: rgb(235, 235, 235);
+  font-family: "Architects Daughter", cursive;
+}
+
+
+
+/* <div role="group" tabindex="0" aria-label="Audio player" class="rhap_container rhap_loop--off rhap_play-status--paused "><audio src="https://rautemusik-de-hz-fal-stream15.radiohost.de/partyhits?ref=radiobrowser" preload="auto"></audio><div class="rhap_main rhap_stacked"><div class="rhap_progress-section"></div><div class="rhap_controls-section"><div class="rhap_main-controls"><button aria-label="Play" class="rhap_button-clear rhap_main-controls-button rhap_play-pause-button" type="button"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M10 16.5v-9l6 4.5M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2"></path></svg></button></div><div class="rhap_volume-controls"><div class="rhap_volume-container"><button aria-label="Mute" type="button" class="rhap_button-clear rhap_volume-button"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.84-5 6.7v2.07c4-.91 7-4.49 7-8.77c0-4.28-3-7.86-7-8.77M16.5 12c0-1.77-1-3.29-2.5-4.03V16c1.5-.71 2.5-2.24 2.5-4M3 9v6h4l5 5V4L7 9z"></path></svg></button><div role="progressbar" aria-label="Volume control" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" tabindex="0" class="rhap_volume-bar-area"><div class="rhap_volume-bar"><div class="rhap_volume-indicator" style="left: 100%; transition-duration: 0s;"></div></div></div></div></div></div></div></div> */

@@ -1,0 +1,129 @@
+h1 {
+	margin: 1em 0 0 0;
+	font-size: 3rem;
+}
+
+h2 {
+	margin-bottom: 2em;
+}
+
+.radio {
+	max-width: 60em;
+}
+
+.filters {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 2em;
+	font-size: 1.2rem;
+}
+
+.filters span {
+	margin: 0 0.25em;
+	border: 3px solid #989898;
+	border-radius: 10px;
+	padding: 0.25em 0.75em;
+}
+
+.filters span:hover {
+	cursor: pointer;
+	background: linear-gradient(to bottom right, #1e8bd9, #104a7c);
+}
+
+.filters .selected {
+	background: linear-gradient(to bottom right, #1e8bd9, #104a7c);
+}
+
+.stations {
+	display: grid;
+	grid-template-columns: repeat(3, 33%);
+}
+
+.station {
+	font-size: 1.4rem;
+	border: 4px solid #000000;
+	margin: 0.25em;
+	border-radius: 10px;
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+/* .station:hover .stationName,
+.station:hover {
+    border-color: #82e175;
+} */
+
+/* .station:hover {
+    border-color: #82e175;
+} */
+
+.stationName {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 1em;
+	width: 100%;
+	align-items: center;
+	justify-content: start;
+}
+
+.stationName:hover {
+	border-color: #82e175;
+}
+
+.name {
+	width: 100%;
+	text-align: center;
+	font-size: 1.2rem;
+	color: #000000
+}
+
+.stationName img {
+	display: block;
+	width: 2.5em;
+	height: 2.5em;
+	border-radius: 10%;
+	border: 3px solid #989898;
+	margin: 0 0.25em;
+}
+
+audio {
+	width: 100%;
+}
+
+.player {
+	background: #bd696900;
+	border-radius: 10px;
+	border: 3px solid #989898;
+}
+
+.player:hover {
+	/* background: #86c4f3; */
+    border-color: #000000;
+}
+
+
+.rhap_controls-section {
+    margin-top: 0px;
+}
+
+.rhap_stacked .rhap_controls-section {
+    margin-top: 10px !important;
+}
+
+.loading {
+	margin-top: 1em;
+	/* cambia color de letra */
+	color: #000000;
+	/* cambia tamaño de letra a grande */
+	font-size: 1.4rem;
+	/* centrado */
+	text-align: center;
+	/* centrado horizontal */
+	display: flex;
+	justify-content: center;
+	/* negrita */
+	font-weight: bold;
+}
