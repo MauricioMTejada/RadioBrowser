@@ -1,40 +1,64 @@
 import React, { useState, useEffect } from "react";
-import { RadioBrowserApi } from "radio-browser-api";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import defaultImage from "./images/generic_radio.png";
-import styles from './Radio.module.css';  // Cambiado a estilos importados desde el archivo SCSS
+import styles from './Radio.module.css';
+import { all, classical, country, dance, disco, house, jazz, pop, rap, retro, rock } from './dataRadio/dataRadio';
 
 export const Radio = () => {
   const [stations, setStations] = useState();
-  const [stationFilter, setSationFilter] = useState("all");
+  const [stationFilter, setStationFilter] = useState("all");
   const [loading, setLoading] = useState(false);
 
   const maxStationNameLength = 30;
-  const excludedUrl = "http://icecast.nowster.org.uk:8000/chbn.aac"; // URL que se debe excluir
+  const excludedUrl = "http://icecast.nowster.org.uk:8000/chbn.aac";
 
   useEffect(() => {
     setLoading(true);
-    setupApi(stationFilter).then((data) => {
-      // Filtrar estaciones con la URL excluida
-      const filteredStations = data.filter(station => station.urlResolved !== excludedUrl);
-      setStations(filteredStations.map(station => ({ ...station, name: truncateStationName(station.name) })));
-      setLoading(false);
-    });
+    // Simulando la respuesta de la API con la información del archivo dataRadio
+    const data = getFilteredStations(stationFilter);
+    setStations(data);
+    setLoading(false);
   }, [stationFilter]);
 
-  const setupApi = async (stationFilter) => {
-    const api = new RadioBrowserApi(fetch.bind(window), "My Radio App");
+  const getFilteredStations = (filter) => {
+    // Obtener la lista de estaciones según el filtro
+    const stationsList = getStationsByFilter(filter);
 
-    const stations = await api.searchStations({
-      language: "english",
-      tag: stationFilter,
-      limit: 30,
-    });
+    // Filtrar estaciones con la URL excluida
+    const filteredStations = stationsList.filter(station => station.urlResolved !== excludedUrl);
 
-    console.log(stations);
+    // Modificar el nombre de la estación si es demasiado largo
+    return filteredStations.map(station => ({ ...station, name: truncateStationName(station.name) }));
+  };
 
-    return stations;
+  const getStationsByFilter = (filter) => {
+    switch (filter) {
+      case "all":
+        return all;
+      case "classical":
+        return classical;
+      case "country":
+        return country;
+      case "dance":
+        return dance;
+      case "disco":
+        return disco;
+      case "house":
+        return house;
+      case "jazz":
+        return jazz;
+      case "pop":
+        return pop;
+      case "rap":
+        return rap;
+      case "retro":
+        return retro;
+      case "rock":
+        return rock;
+      default:
+        return all;
+    }
   };
 
   const truncateStationName = (name) => {
@@ -47,7 +71,7 @@ export const Radio = () => {
     "country",
     "dance",
     "disco",
-    "house", // <- Debería ser "house" en lugar de "hose"
+    "house",
     "jazz",
     "pop",
     "rap",
@@ -66,7 +90,7 @@ export const Radio = () => {
           return (
             <span
               className={stationFilter === filter ? styles.selected : ""}
-              onClick={() => setSationFilter(filter)}
+              onClick={() => setStationFilter(filter)}
               key={filter}
             >
               {filter}
@@ -81,28 +105,28 @@ export const Radio = () => {
         {stations &&
           stations.map((station, index) => {
             return (
-							<div className={styles.station} key={index}>
-								<div className={styles.stationName}>
-									<img
-										className={styles.logo}
-										src={station.favicon}
-										alt="station logo"
-										onError={setDefaultSrc}
-									/>
+              <div className={styles.station} key={index}>
+                <div className={styles.stationName}>
+                  <img
+                    className={styles.logo}
+                    src={station.favicon}
+                    alt="station logo"
+                    onError={setDefaultSrc}
+                  />
                   <div className={styles.name}>{station.name.toLowerCase()}</div>
-								</div>
+                </div>
 
-								<AudioPlayer
-									className={styles.player}
-									src={station.urlResolved}
-									showJumpControls={false}
-									layout="stacked"
-									customProgressBarSection={[]}
-									customControlsSection={["MAIN_CONTROLS", "VOLUME_CONTROLS"]}
-									autoPlayAfterSrcChange={false}
-								/>
-							</div>
-						);
+                <AudioPlayer
+                  className={styles.player}
+                  src={station.urlResolved}
+                  showJumpControls={false}
+                  layout="stacked"
+                  customProgressBarSection={[]}
+                  customControlsSection={["MAIN_CONTROLS", "VOLUME_CONTROLS"]}
+                  autoPlayAfterSrcChange={false}
+                />
+              </div>
+            );
           })}
       </div>
     </div>
