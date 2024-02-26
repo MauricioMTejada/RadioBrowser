@@ -3,7 +3,7 @@
 	grid-template-columns: repeat(3, 33%);
 }
 
-.station {
+.stile01 {
 	background: rgba(2, 253, 178, 0.2);
 	border-radius: 16px;
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -11,15 +11,36 @@
 	-webkit-backdrop-filter: blur(5px);
 	border: 1px solid rgba(255, 255, 255, 0.3);
 
+	margin: 0.25em;
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+
+.stile02 {
 	font-size: 1.4rem;
 	/* border: 4px solid #000000; */
-	margin: 0.25em;
 	/* border-radius: 10px; */
-	padding: 1em;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	padding: 1em;
+	width: 100%;
+
+}
+
+.loadingContainer {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.loading {
+	position: absolute;
+	/* bottom: 20px;  */
+	font-size: small;
 }
 
 .stationName {
@@ -27,19 +48,23 @@
 	flex-direction: row;
 	margin-bottom: 1em;
 	width: 100%;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: start;
 }
 
-.stationName:hover {
-	border-color: #82e175;
+.textDouble {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	flex-grow: 1;
 }
 
 .name {
 	width: 100%;
 	text-align: center;
 	font-size: 1.2rem;
-	color: #000000
+	color: #000000;
 }
 
 .player {

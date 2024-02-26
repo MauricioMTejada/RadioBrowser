@@ -1,11 +1,12 @@
-// StationList.tsx
-
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import defaultImage from "../images/generic_radio.png";
 import "react-h5-audio-player/lib/styles.css";
 import styles from "./radioCard.module.css";
 import { Play } from "../utils/playerIconsControls/play";
+import RadioCardLoading from "./radioCardLoading";
+import RadioCardHeader from "./RadioCardHeader";
+import RadioCardPlayer from "./RadioCardPlayer";
 
 interface Station {
 	favicon: string;
@@ -14,63 +15,77 @@ interface Station {
 }
 
 interface Props {
-    stations: Station[] | undefined;
-    playingIndexes: number[];
+	stations: Station[] | undefined;
+	playingIndexes: number[];
 	setPlayingIndexes: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
-const RadioCard: React.FC<Props> = ({ stations, playingIndexes, setPlayingIndexes }) => {
-	// const [playingIndexes, setPlayingIndexes] = useState<number[]>([]);
+const RadioCard: React.FC<Props> = ({
+	stations,
+	playingIndexes,
+	setPlayingIndexes,
+}) => {
+	const [loadingIndexes, setLoadingIndexes] = useState<number[]>([]);
+	const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+
+	useEffect(() => {
+		if (loadingIndexes.length > 0) {
+			const timeout = setTimeout(() => {
+				setLoadingIndexes([]);
+				// Aquí podrías agregar lógica adicional para detener la reproducción
+			}, 10000); // 10 segundos
+			setTimeoutId(timeout);
+		} else {
+			clearTimeout(timeoutId as NodeJS.Timeout);
+		}
+	}, [loadingIndexes]);
 
 	if (!stations) {
 		return null;
-	  }
+	}
 
 	const setDefaultSrc = (event: React.SyntheticEvent<HTMLImageElement>) => {
 		event.currentTarget.src = defaultImage;
 	};
 
-    const handlePlay = (index: number) => {
-        setPlayingIndexes(prevIndexes => [...prevIndexes, index]);
-    };
+	const handlePlay = (index: number) => {
+		setPlayingIndexes((prevIndexes) => [...prevIndexes, index]);
+		setLoadingIndexes((prevIndexes) => [...prevIndexes, index]);
+	};
 
-    const handlePause = (index: number) => {
-        setPlayingIndexes(prevIndexes => prevIndexes.filter(item => item !== index));
-    };
+	const handlePause = (index: number) => {
+		setPlayingIndexes((prevIndexes) =>
+			prevIndexes.filter((item) => item !== index)
+		);
+		setLoadingIndexes((prevIndexes) =>
+			prevIndexes.filter((item) => item !== index)
+		);
+	};
 
 	return (
 		<div className={styles.stations}>
 			{stations &&
 				stations.map((station, index) => (
-					<div className={styles.station} key={index}>
-						<div className={styles.stationName}>
-							<img
-								className={styles.logo}
-								src={station.favicon}
-								alt="station logo"
-								onError={setDefaultSrc}
+					<div className={styles.stile01} key={index}>
+						{loadingIndexes.includes(index) && (
+							<RadioCardLoading index={index} />
+						)}
+
+						<div className={styles.stile02}>
+							<RadioCardHeader
+								station={station}
+								setDefaultSrc={setDefaultSrc}
 							/>
-							<div className={styles.name}>{station.name.toLowerCase()}</div>
+
+							<RadioCardPlayer
+								index={index}
+								src={station.urlResolved}
+								playing={playingIndexes.includes(index)}
+								handlePlay={handlePlay}
+								handlePause={handlePause}
+								setLoadingIndexes={setLoadingIndexes}
+							/>
 						</div>
-
-						<AudioPlayer
-							// className={`${styles.player} ${playingIndexes.includes(index) ? styles.playing : ''}`}
-							className={`${styles.player} ${playingIndexes.includes(index) ? styles.playing : ''}`}
-							src={station.urlResolved}
-							showJumpControls={false}
-							layout="stacked"
-							customProgressBarSection={[]}
-							customControlsSection={[
-								RHAP_UI.MAIN_CONTROLS,
-								RHAP_UI.VOLUME_CONTROLS,
-							]}
-							autoPlayAfterSrcChange={false}
-							// customIcons={{ play: <Play />, }}
-							//   style={{ backgroundColor: 'pink' }}
-
-							onPlay={() => handlePlay(index)}
-							onPause={() => handlePause(index)}
-						/>
 					</div>
 				))}
 		</div>
