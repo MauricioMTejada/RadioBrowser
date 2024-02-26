@@ -1,3 +1,22 @@
+.styleContainer {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+  }
+
+.titles {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: fixed;
+	z-index: 10;
+	background-image: linear-gradient(19deg, #203c42 0%, #311e3a 100%);
+	width: 100%;
+	background-attachment: fixed;
+}
 h1 {
 	margin: 1em 0 0 0;
 	font-size: 3rem;
@@ -8,31 +27,54 @@ h2 {
 }
 
 .radio {
+	display: flex;
+	flex-direction: row;
 	max-width: 60em;
+	margin-top: 300px;
 }
 
-.filters {
+/* .sticky {
+	position: fixed;
+	z-index: 10;
+} */
+
+.stickyComplement {
+	margin-top: 216px;
+	/* padding-top: 10rem; */
+}
+
+.stationName img {
+	display: block;
+	width: 2.5em;
+	height: 2.5em;
+	border-radius: 10%;
+	border: 3px solid #989898;
+	margin: 0 0.25em;
+}
+
+audio {
+	width: 100%;
+}
+
+.rhap_controls-section {
+    margin-top: 0px;
+}
+
+.rhap_stacked .rhap_controls-section {
+    margin-top: 10px !important;
+}
+
+.loading {
+	margin-top: 1em;
+	color: #000000;
+	font-size: 1.4rem;
+	text-align: center;
 	display: flex;
 	justify-content: center;
-	margin-bottom: 2em;
-	font-size: 1.2rem;
+	font-weight: bold;
 }
 
-.filters span {
-	margin: 0 0.25em;
-	border: 3px solid #989898;
-	border-radius: 10px;
-	padding: 0.25em 0.75em;
-}
-
-.filters span:hover {
-	cursor: pointer;
-	background: linear-gradient(to bottom right, #1e8bd9, #104a7c);
-}
-
-.filters .selected {
-	background: linear-gradient(to bottom right, #1e8bd9, #104a7c);
-}
+/* radioCard */
 
 .stations {
 	display: grid;
@@ -40,25 +82,22 @@ h2 {
 }
 
 .station {
+	/* From https://css.glass */
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+
 	font-size: 1.4rem;
-	border: 4px solid #000000;
 	margin: 0.25em;
-	border-radius: 10px;
 	padding: 1em;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
-
-/* .station:hover .stationName,
-.station:hover {
-    border-color: #82e175;
-} */
-
-/* .station:hover {
-    border-color: #82e175;
-} */
 
 .stationName {
 	display: flex;
@@ -80,19 +119,6 @@ h2 {
 	color: #000000
 }
 
-.stationName img {
-	display: block;
-	width: 2.5em;
-	height: 2.5em;
-	border-radius: 10%;
-	border: 3px solid #989898;
-	margin: 0 0.25em;
-}
-
-audio {
-	width: 100%;
-}
-
 .player {
 	background: #bd696900;
 	border-radius: 10px;
@@ -104,26 +130,10 @@ audio {
     border-color: #000000;
 }
 
-
-.rhap_controls-section {
-    margin-top: 0px;
-}
-
-.rhap_stacked .rhap_controls-section {
-    margin-top: 10px !important;
-}
-
-.loading {
-	margin-top: 1em;
-	/* cambia color de letra */
-	color: #000000;
-	/* cambia tamaño de letra a grande */
-	font-size: 1.4rem;
-	/* centrado */
-	text-align: center;
-	/* centrado horizontal */
-	display: flex;
-	justify-content: center;
-	/* negrita */
-	font-weight: bold;
+.logo {
+    height: 2.5em;
+    width: 2.5em;
+    border-radius: 10%;
+    border: 3px solid #989898;
+    margin: 0 0.25em;
 }

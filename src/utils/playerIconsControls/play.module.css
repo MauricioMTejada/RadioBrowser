@@ -1,0 +1,15 @@
+.iconContainer {
+    width: 40px;
+    height: 40px;
+    /* padding: auto; */
+    /* margin: auto; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.iconPlay {
+    background-color: red;
+    margin: auto;
+}

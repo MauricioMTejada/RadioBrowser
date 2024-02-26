@@ -1,0 +1,71 @@
+.stations {
+	display: grid;
+	grid-template-columns: repeat(3, 33%);
+}
+
+.station {
+	background: rgba(2, 253, 178, 0.2);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+
+	font-size: 1.4rem;
+	/* border: 4px solid #000000; */
+	margin: 0.25em;
+	/* border-radius: 10px; */
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.stationName {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 1em;
+	width: 100%;
+	align-items: center;
+	justify-content: start;
+}
+
+.stationName:hover {
+	border-color: #82e175;
+}
+
+.name {
+	width: 100%;
+	text-align: center;
+	font-size: 1.2rem;
+	color: #000000
+}
+
+.player {
+	background: #c63d3d00;
+	border-radius: 10px;
+	border: 3px solid #989898;
+	/* display: flex;
+	align-items: center;
+	justify-content: center; */
+}
+
+.player:hover {
+	background: #c6e6ff13;
+    /* border-color: #000000; */
+}
+
+.logo {
+    height: 2.5em;
+    width: 2.5em;
+    border-radius: 10%;
+    border: 3px solid #989898;
+    margin: 0 0.25em;
+}
+
+.playing {
+	/* background: #c6e6ff23; */
+	background: rgba(2, 253, 178, 0.15);
+	border: 3px solid #8e5555;
+}

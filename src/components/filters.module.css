@@ -1,0 +1,22 @@
+.filters {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 2em;
+	font-size: 1.2rem;
+}
+
+.filters span {
+	margin: 0 0.25em;
+	border: 3px solid #989898;
+	border-radius: 10px;
+	padding: 0.25em 0.75em;
+}
+
+.filters span:hover {
+	cursor: pointer;
+	background: linear-gradient(to bottom right, #1e8bd9, #104a7c);
+}
+
+.filters .selected {
+	background: linear-gradient(to bottom right, #1e8bd9, #104a7c);
+}
