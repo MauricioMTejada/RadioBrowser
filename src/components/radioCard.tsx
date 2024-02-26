@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import defaultImage from "../images/generic_radio.png";
 import "react-h5-audio-player/lib/styles.css";
 import styles from "./radioCard.module.css";
-import { Play } from "../utils/playerIconsControls/play";
 import RadioCardLoading from "./radioCardLoading";
 import RadioCardHeader from "./RadioCardHeader";
 import RadioCardPlayer from "./RadioCardPlayer";

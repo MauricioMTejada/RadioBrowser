@@ -4,7 +4,6 @@ import { getFilteredStations } from "./utils/getRadio/getFilteredStations";
 import { Filters } from "./components/filters";
 import RadioCard from "./components/radioCard";
 import { Station } from "./dataRadio/dataRadio";
-// import "react-h5-audio-player/lib/styles.css";
 
 export const Radio = () => {
 	const [stations, setStations] = useState<Station[] | undefined>();
