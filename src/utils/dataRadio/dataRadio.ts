@@ -16,12 +16,12 @@ export interface Station {
     clickTrend: number;
     hls: boolean;
     lastCheckOk: boolean;
-    lastChangeTime: string;
-    lastCheckOkTime: string;
-    clickTimestamp: string | null;
-    lastLocalCheckTime: string | null;
+    lastChangeTime: string | Date;
+    lastCheckOkTime: string | Date;
+    clickTimestamp: string | Date | null;
+    lastLocalCheckTime: string | Date | null;
     language: string[];
-    lastCheckTime: string;
+    lastCheckTime: string  | Date;
     geoLat: number | null;
     geoLong: number | null;
     tags: string[];

@@ -3,10 +3,11 @@ import styles from "./Radio.module.css";
 import { getFilteredStations } from "./utils/getRadio/getFilteredStations";
 import { Filters } from "./components/filters";
 import RadioCard from "./components/radioCard";
-import { Station } from "./dataRadio/dataRadio";
+import { Station } from "./utils/dataRadio/dataRadio";
+import {getFilteredStationsApi} from "./utils/getRadio/getFilteredStationsApi";
 
 export const Radio = () => {
-	const [stations, setStations] = useState<Station[] | undefined>();
+	const [stations, setStations] = useState<Station[] | undefined>(undefined);
 	const [stationFilter, setStationFilter] = useState<
 		| "all"
 		| "classical"
@@ -25,10 +26,22 @@ export const Radio = () => {
 
 	useEffect(() => {
 		setLoading(true);
-		const data = getFilteredStations({ filter: stationFilter });
-		setStations(data);
-		setLoading(false);
-		setPlayingIndexes([]);
+
+		const fetchData = async () => {
+			try {
+				const data = getFilteredStations({ filter: stationFilter });
+				// const data = await getFilteredStationsApi({ stationFilter }) as Station[];
+
+				setStations(data);
+				setLoading(false);
+				setPlayingIndexes([]);
+			} catch (error) {
+				console.error('Error fetching stations:', error);
+				setLoading(false);
+			}
+		};
+
+		fetchData();
 	}, [stationFilter]);
 
 	return (
@@ -45,11 +58,13 @@ export const Radio = () => {
 			<div className={styles.radio}>
 				{loading && <div className={styles.loading}>Loading...</div>}
 
-				<RadioCard
-					stations={stations}
-					playingIndexes={playingIndexes}
-					setPlayingIndexes={setPlayingIndexes}
-				/>
+				<div className={loading ? styles.loaded : ""}>
+					<RadioCard
+						stations={stations}
+						playingIndexes={playingIndexes}
+						setPlayingIndexes={setPlayingIndexes}
+					/>
+				</div>
 			</div>
 		</div>
 	);

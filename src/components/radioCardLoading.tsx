@@ -7,7 +7,7 @@ interface Props {
 
 const RadioCardLoading: React.FC<Props> = ({ index }) => {
   return (
-    <div className={styles.loading}>Cargando...</div>
+    <div className={styles.loading}>Loading...</div>
   );
 };
 

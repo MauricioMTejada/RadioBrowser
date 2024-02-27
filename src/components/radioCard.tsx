@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import defaultImage from "../images/generic_radio.png";
+import defaultImage from "../assets/generic_radio.png";
 import "react-h5-audio-player/lib/styles.css";
 import styles from "./radioCard.module.css";
 import RadioCardLoading from "./radioCardLoading";
@@ -18,11 +18,7 @@ interface Props {
 	setPlayingIndexes: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
-const RadioCard: React.FC<Props> = ({
-	stations,
-	playingIndexes,
-	setPlayingIndexes,
-}) => {
+const RadioCard: React.FC<Props> = ({ stations, playingIndexes, setPlayingIndexes, }) => {
 	const [loadingIndexes, setLoadingIndexes] = useState<number[]>([]);
 	const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
 
